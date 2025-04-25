@@ -14,8 +14,10 @@ import {
   TimerOff, 
   Timer, 
   Wallet,
-  ChevronUp 
+  ChevronUp,
+  Info
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Типы для карточек влияния
 type ImpactCardProps = {
@@ -177,6 +179,11 @@ export const PositiveImpact = () => {
         <ImpactGrid impacts={positiveImpacts} />
 
         <div className="flex justify-center gap-4 mt-10">
+          <Button asChild variant="outline" className="gap-2">
+            <Link to="/impact-details">
+              Подробнее <Info className="h-4 w-4" />
+            </Link>
+          </Button>
           <NavigationButton targetId="negative">
             Негативное влияние <ChevronRight className="h-4 w-4" />
           </NavigationButton>
@@ -202,6 +209,11 @@ export const NegativeImpact = () => {
         <ImpactGrid impacts={negativeImpacts} iconColor="text-destructive" />
 
         <div className="flex justify-center gap-4 mt-10">
+          <Button asChild variant="outline" className="gap-2">
+            <Link to="/impact-details">
+              Подробнее <Info className="h-4 w-4" />
+            </Link>
+          </Button>
           <NavigationButton targetId="genres">
             Жанры игр <ChevronRight className="h-4 w-4" />
           </NavigationButton>
