@@ -1,50 +1,100 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, Gamepad2, Heart } from "lucide-react";
-
-interface ImpactItemProps {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-}
-
-const ImpactItem = ({ title, description, icon }: ImpactItemProps) => {
-  return (
-    <Card className="hover:shadow-md transition-shadow">
-      <CardHeader className="flex flex-row items-center gap-4">
-        <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-          {icon}
-        </div>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <CardDescription className="text-base">{description}</CardDescription>
-      </CardContent>
-    </Card>
-  );
-};
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Brain, ChevronRight, Gamepad2, Heart, Lightbulb, MessageCircle, Network, PlusCircle, Sparkles, TimerOff, Timer, Wallet } from "lucide-react";
 
 export const PositiveImpact = () => {
   return (
     <section id="positive" className="py-16 bg-background">
       <div className="container">
-        <h2 className="text-3xl font-bold mb-12 text-center">Положительное влияние</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <ImpactItem
-            title="Улучшение когнитивных функций"
-            description="Игры, особенно стратегические и ролевые, развивают память, внимание, способность к планированию и пространственному мышлению."
-            icon={<Brain className="h-6 w-6" />}
-          />
-          <ImpactItem
-            title="Развитие навыков решения проблем"
-            description="Игровые сценарии часто требуют принятия быстрых и эффективных решений, что развивает критическое мышление."
-            icon={<Gamepad2 className="h-6 w-6" />}
-          />
-          <ImpactItem
-            title="Психологическая разгрузка"
-            description="Умеренное увлечение играми может служить способом релаксации и снятия стресса после напряженного дня."
-            icon={<Heart className="h-6 w-6" />}
-          />
+        <h2 className="text-3xl font-bold text-center mb-4">Положительное влияние игр</h2>
+        <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+          Современные исследования подтверждают многочисленные позитивные эффекты от умеренного и сбалансированного геймплея
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Brain className="h-8 w-8 text-primary flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Когнитивные способности</h3>
+                  <p className="text-muted-foreground">Улучшение памяти, внимания, скорости обработки информации и многозадачности.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Sparkles className="h-8 w-8 text-primary flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Креативность</h3>
+                  <p className="text-muted-foreground">Развитие творческого мышления и инновационных подходов к решению проблем.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Network className="h-8 w-8 text-primary flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Координация</h3>
+                  <p className="text-muted-foreground">Повышение зрительно-моторной координации и скорости реакции.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <MessageCircle className="h-8 w-8 text-primary flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Социализация</h3>
+                  <p className="text-muted-foreground">Формирование новых социальных связей и развитие коммуникативных навыков в многопользовательских играх.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Heart className="h-8 w-8 text-primary flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Эмоциональная разгрузка</h3>
+                  <p className="text-muted-foreground">Снижение стресса и улучшение настроения в результате игрового процесса.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Lightbulb className="h-8 w-8 text-primary flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Образовательный эффект</h3>
+                  <p className="text-muted-foreground">Получение новых знаний и навыков через образовательные и исторические игры.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="text-center mt-10">
+          <Button
+            onClick={() => {
+              document.getElementById("negative")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="gap-2"
+          >
+            Негативное влияние <ChevronRight className="h-4 w-4" />
+          </Button>
         </div>
       </div>
     </section>
@@ -55,23 +105,94 @@ export const NegativeImpact = () => {
   return (
     <section id="negative" className="py-16 bg-primary/5">
       <div className="container">
-        <h2 className="text-3xl font-bold mb-12 text-center">Отрицательное влияние</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <ImpactItem
-            title="Игровая зависимость"
-            description="Чрезмерное увлечение играми может привести к формированию зависимого поведения, влияющего на все сферы жизни."
-            icon={<Gamepad2 className="h-6 w-6" />}
-          />
-          <ImpactItem
-            title="Проблемы со здоровьем"
-            description="Длительное сидение за компьютером способствует развитию проблем со зрением, осанкой и общим физическим состоянием."
-            icon={<Heart className="h-6 w-6" />}
-          />
-          <ImpactItem
-            title="Снижение социальной активности"
-            description="При замещении реального общения виртуальным может страдать развитие социальных навыков и эмоционального интеллекта."
-            icon={<Brain className="h-6 w-6" />}
-          />
+        <h2 className="text-3xl font-bold text-center mb-4">Потенциальные риски</h2>
+        <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+          При чрезмерном увлечении компьютерными играми могут возникать следующие проблемы
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Gamepad2 className="h-8 w-8 text-destructive flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Игровая зависимость</h3>
+                  <p className="text-muted-foreground">Формирование патологического влечения к играм, классифицированного ВОЗ как расстройство.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <TimerOff className="h-8 w-8 text-destructive flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Нарушение режима</h3>
+                  <p className="text-muted-foreground">Сбои режима сна, питания и физической активности из-за длительных игровых сессий.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Timer className="h-8 w-8 text-destructive flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Снижение продуктивности</h3>
+                  <p className="text-muted-foreground">Ухудшение успеваемости и результатов работы из-за чрезмерного времени, уделяемого играм.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <Wallet className="h-8 w-8 text-destructive flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Финансовые проблемы</h3>
+                  <p className="text-muted-foreground">Неконтролируемые расходы на внутриигровые покупки и новые игры.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <PlusCircle className="h-8 w-8 text-destructive flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Проблемы со здоровьем</h3>
+                  <p className="text-muted-foreground">Ухудшение зрения, туннельный синдром запястья, боли в спине и шее при длительных игровых сессиях.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <MessageCircle className="h-8 w-8 text-destructive flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Социальная изоляция</h3>
+                  <p className="text-muted-foreground">Замена реального общения виртуальным и ослабление существующих социальных связей.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="text-center mt-10">
+          <Button
+            onClick={() => {
+              document.getElementById("genres")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="gap-2"
+          >
+            Жанры игр <ChevronRight className="h-4 w-4" />
+          </Button>
         </div>
       </div>
     </section>

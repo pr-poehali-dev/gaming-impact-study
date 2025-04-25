@@ -20,10 +20,19 @@ const Hero = () => {
                 document.getElementById("positive")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Узнать больше
+              Положительное влияние
             </Button>
             <Button
               variant="outline"
+              size="lg"
+              onClick={() => {
+                document.getElementById("negative")?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Негативное влияние
+            </Button>
+            <Button
+              variant="secondary"
               size="lg"
               onClick={() => {
                 document.getElementById("research")?.scrollIntoView({ behavior: "smooth" });

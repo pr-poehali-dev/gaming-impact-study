@@ -1,140 +1,145 @@
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { ArrowUpRight, BookOpen } from "lucide-react";
 
 const ResearchSection = () => {
   return (
     <section id="research" className="py-16 bg-background">
       <div className="container">
-        <h2 className="text-3xl font-bold mb-4 text-center">Последние исследования</h2>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-          Научное сообщество активно изучает многогранное влияние видеоигр на психологическое и
-          физиологическое состояние человека
+        <h2 className="text-3xl font-bold text-center mb-4">Научные исследования</h2>
+        <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+          Актуальные научные работы, изучающие влияние видеоигр на познавательные способности, поведение и здоровье
         </p>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {researchData.map((item, index) => (
-            <Card key={index} className="flex flex-col h-full hover:shadow-md transition-all duration-300">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg">{item.title}</CardTitle>
-                  <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
-                    {item.category}
-                  </span>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <p>{item.description}</p>
-                {item.findings && (
-                  <div className="mt-4 p-3 bg-muted/50 rounded-md">
-                    <p className="font-medium text-sm">Основные выводы:</p>
-                    <ul className="mt-1 space-y-1">
-                      {item.findings.map((finding, idx) => (
-                        <li key={idx} className="text-sm flex items-start">
-                          <span className="text-primary mr-2">•</span>
-                          <span>{finding}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </CardContent>
-              <CardFooter className="flex items-center justify-between text-sm">
-                <p className="text-muted-foreground">{item.source}, {item.year}</p>
-                {item.link && (
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" 
-                     className="flex items-center text-primary hover:underline">
-                    Подробнее <ArrowUpRight className="ml-1 h-3 w-3" />
-                  </a>
-                )}
-              </CardFooter>
-            </Card>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <Card className="flex flex-col">
+            <CardContent className="flex-1 pt-6">
+              <div className="mb-4">
+                <span className="text-xs font-medium bg-primary/10 text-primary py-1 px-2 rounded-full">Когнитивные науки</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Impact of Video Games on Cognitive Function</h3>
+              <p className="text-muted-foreground mb-4">Daphne Bavelier, C. Shawn Green (2019)</p>
+              <p className="text-sm">Исследование показывает, что определенные жанры видеоигр могут улучшать внимание, память и пространственные навыки у игроков всех возрастов.</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center pt-2 pb-4">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <BookOpen className="h-3 w-3" /> Nature Reviews Neuroscience
+              </div>
+              <Button variant="ghost" size="sm" className="gap-1">
+                Подробнее <ArrowUpRight className="h-3 w-3" />
+              </Button>
+            </CardFooter>
+          </Card>
+
+          <Card className="flex flex-col">
+            <CardContent className="flex-1 pt-6">
+              <div className="mb-4">
+                <span className="text-xs font-medium bg-primary/10 text-primary py-1 px-2 rounded-full">Психология</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Video Games and Prosocial Behavior</h3>
+              <p className="text-muted-foreground mb-4">Tobias Greitemeyer, Silvia Osswald (2022)</p>
+              <p className="text-sm">Метаанализ показал, что просоциальные видеоигры способствуют более альтруистическому поведению и повышают эмпатию в реальных ситуациях.</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center pt-2 pb-4">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <BookOpen className="h-3 w-3" /> Journal of Personality and Social Psychology
+              </div>
+              <Button variant="ghost" size="sm" className="gap-1">
+                Подробнее <ArrowUpRight className="h-3 w-3" />
+              </Button>
+            </CardFooter>
+          </Card>
+
+          <Card className="flex flex-col">
+            <CardContent className="flex-1 pt-6">
+              <div className="mb-4">
+                <span className="text-xs font-medium bg-primary/10 text-primary py-1 px-2 rounded-full">Медицина</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Gaming Disorder: Clinical Implications</h3>
+              <p className="text-muted-foreground mb-4">Vladimir Poznyak, Daria Kuss (2021)</p>
+              <p className="text-sm">Клиническое исследование игрового расстройства, включенного в МКБ-11, и рекомендации по диагностике и лечению игровой зависимости.</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center pt-2 pb-4">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <BookOpen className="h-3 w-3" /> World Health Organization
+              </div>
+              <Button variant="ghost" size="sm" className="gap-1">
+                Подробнее <ArrowUpRight className="h-3 w-3" />
+              </Button>
+            </CardFooter>
+          </Card>
+
+          <Card className="flex flex-col">
+            <CardContent className="flex-1 pt-6">
+              <div className="mb-4">
+                <span className="text-xs font-medium bg-primary/10 text-primary py-1 px-2 rounded-full">Образование</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Educational Games and Academic Performance</h3>
+              <p className="text-muted-foreground mb-4">James Paul Gee, Elisabeth Hayes (2023)</p>
+              <p className="text-sm">Долгосрочное исследование показало, что интеграция образовательных игр в учебный процесс улучшает успеваемость и вовлеченность учащихся.</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center pt-2 pb-4">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <BookOpen className="h-3 w-3" /> Educational Researcher
+              </div>
+              <Button variant="ghost" size="sm" className="gap-1">
+                Подробнее <ArrowUpRight className="h-3 w-3" />
+              </Button>
+            </CardFooter>
+          </Card>
+
+          <Card className="flex flex-col">
+            <CardContent className="flex-1 pt-6">
+              <div className="mb-4">
+                <span className="text-xs font-medium bg-primary/10 text-primary py-1 px-2 rounded-full">Неврология</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Neural Correlates of Video Game Experience</h3>
+              <p className="text-muted-foreground mb-4">Simone Kühn, Jürgen Gallinat (2020)</p>
+              <p className="text-sm">МРТ-исследование обнаружило, что регулярная игра в видеоигры связана с увеличением объема серого вещества в определенных областях мозга.</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center pt-2 pb-4">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <BookOpen className="h-3 w-3" /> Neuroscience &amp; Biobehavioral Reviews
+              </div>
+              <Button variant="ghost" size="sm" className="gap-1">
+                Подробнее <ArrowUpRight className="h-3 w-3" />
+              </Button>
+            </CardFooter>
+          </Card>
+
+          <Card className="flex flex-col">
+            <CardContent className="flex-1 pt-6">
+              <div className="mb-4">
+                <span className="text-xs font-medium bg-primary/10 text-primary py-1 px-2 rounded-full">Социология</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Gender and Gaming Communities</h3>
+              <p className="text-muted-foreground mb-4">T.L. Taylor, Amanda Cote (2022)</p>
+              <p className="text-sm">Исследование изучает гендерную динамику и инклюзивность в игровых сообществах, а также факторы, влияющие на разнообразие в игровой индустрии.</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center pt-2 pb-4">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <BookOpen className="h-3 w-3" /> Games and Culture
+              </div>
+              <Button variant="ghost" size="sm" className="gap-1">
+                Подробнее <ArrowUpRight className="h-3 w-3" />
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+
+        <div className="text-center">
+          <Button
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            Вернуться наверх
+          </Button>
         </div>
       </div>
     </section>
   );
 };
-
-const researchData = [
-  {
-    title: "Влияние видеоигр на когнитивные функции",
-    description: "Исследование показало, что регулярные игроки в стратегические видеоигры демонстрируют улучшенные навыки визуально-пространственного внимания и многозадачности.",
-    source: "Журнал когнитивной психологии",
-    year: "2022",
-    category: "Когнитивная психология",
-    findings: [
-      "Улучшение скорости обработки визуальной информации на 27%",
-      "Повышение точности при выполнении многозадачных тестов",
-      "Долгосрочные эффекты сохраняются в течение нескольких месяцев после прекращения игр"
-    ],
-    link: "#"
-  },
-  {
-    title: "Видеоигры и социальное взаимодействие",
-    description: "Многопользовательские онлайн-игры могут способствовать формированию социальных связей и развитию навыков сотрудничества у игроков разных возрастных групп.",
-    source: "Международный журнал игровых исследований",
-    year: "2021",
-    category: "Социальная психология",
-    findings: [
-      "Формирование устойчивых социальных связей в виртуальных сообществах",
-      "Развитие навыков командной работы и координации действий",
-      "Снижение социальной тревожности у некоторых игроков"
-    ],
-    link: "#"
-  },
-  {
-    title: "Психологические аспекты игровой зависимости",
-    description: "Долгосрочное исследование выявило факторы риска, способствующие развитию проблемного использования видеоигр, и предложило стратегии профилактики.",
-    source: "Психологический вестник",
-    year: "2023",
-    category: "Клиническая психология",
-    findings: [
-      "Идентификация предрасполагающих факторов: одиночество, депрессия, импульсивность",
-      "Эффективность ограничительных мер времени игры для профилактики зависимости",
-      "Роль семейной поддержки в предотвращении проблемного использования игр"
-    ],
-    link: "#"
-  },
-  {
-    title: "Нейронаучные исследования влияния видеоигр",
-    description: "МРТ-исследования показали изменения в структуре и функциях мозга, связанные с регулярной игровой активностью в различных жанрах видеоигр.",
-    source: "Нейронаучный журнал",
-    year: "2022",
-    category: "Нейронаука",
-    findings: [
-      "Увеличение объема серого вещества в областях мозга, ответственных за пространственную навигацию",
-      "Изменения в активности дофаминергической системы вознаграждения",
-      "Различия в нейронных паттернах между случайными и профессиональными игроками"
-    ],
-    link: "#"
-  },
-  {
-    title: "Влияние видеоигр на развитие детей",
-    description: "Лонгитюдное исследование изучало влияние различных типов видеоигр на когнитивное, эмоциональное и социальное развитие детей в возрасте от 8 до 12 лет.",
-    source: "Журнал детской психологии",
-    year: "2023",
-    category: "Детская психология",
-    findings: [
-      "Образовательные игры способствуют развитию базовых навыков чтения и математики",
-      "Просоциальные игры связаны с развитием эмпатии и альтруистического поведения",
-      "Важность родительского контроля и совместного обсуждения игрового контента"
-    ],
-    link: "#"
-  },
-  {
-    title: "Терапевтическое применение видеоигр",
-    description: "Исследование применения специализированных видеоигр в лечении различных психологических и неврологических состояний, включая депрессию, тревожность и СДВГ.",
-    source: "Терапевтический журнал",
-    year: "2021",
-    category: "Медицина",
-    findings: [
-      "Эффективность игр виртуальной реальности в лечении фобий и посттравматического стресса",
-      "Снижение симптомов СДВГ при использовании специализированных когнитивных тренажеров",
-      "Потенциал использования игр для улучшения приверженности к терапии"
-    ],
-    link: "#"
-  }
-];
 
 export default ResearchSection;
