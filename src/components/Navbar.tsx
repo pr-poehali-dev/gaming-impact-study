@@ -20,11 +20,13 @@ const Navbar = () => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link to="/">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Главная
-                </NavigationMenuLink>
-              </Link>
+              {/* Заменяем Link на NavigationMenuLink напрямую */}
+              <NavigationMenuLink 
+                className={navigationMenuTriggerStyle()} 
+                asChild
+              >
+                <Link to="/">Главная</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Влияние игр</NavigationMenuTrigger>
@@ -52,11 +54,13 @@ const Navbar = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/#research">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Исследования
-                </NavigationMenuLink>
-              </Link>
+              {/* Заменяем Link на NavigationMenuLink напрямую */}
+              <NavigationMenuLink 
+                className={navigationMenuTriggerStyle()}
+                asChild
+              >
+                <Link to="/#research">Исследования</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
