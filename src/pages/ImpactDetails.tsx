@@ -44,6 +44,7 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 // Подробные данные о положительном влиянии
 const positiveImpactsDetailed = [
@@ -180,7 +181,7 @@ const positiveImpactsDetailed = [
     details: [
       "Повышение мотивации к обучению через геймификацию образовательного процесса",
       "Усвоение исторических знаний через игры с исторической тематикой (Assassin's Creed, Civilization)",
-      "Освоение иностранных языков через погружение в игровую среду",
+      "Освоение иностранных языков через погружение в игровой среду",
       "Развитие понимания экономических и ресурсных систем через стратегии",
       "Приобретение базовых навыков программирования через игры с элементами кодинга",
     ],
