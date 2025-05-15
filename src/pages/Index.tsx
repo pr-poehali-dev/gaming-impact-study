@@ -1,9 +1,8 @@
-
 import Footer from "@/components/Footer";
 import GameGenresSection from "@/components/GameGenresSection";
 import HealthyGamingSection from "@/components/HealthyGamingSection";
 import Hero from "@/components/Hero";
-import { NegativeImpact, PositiveImpact } from "@/components/ImpactSection";
+import { PositiveImpact, NegativeImpact } from "@/components/ImpactSection";
 import Navbar from "@/components/Navbar";
 import ResearchSection from "@/components/ResearchSection";
 import StatisticsSection from "@/components/StatisticsSection";
