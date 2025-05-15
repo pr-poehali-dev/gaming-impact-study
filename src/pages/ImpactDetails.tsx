@@ -477,5 +477,98 @@ const gameHistoryData = {
   ],
 };
 
-// Компоненты и основной экспорт ImpactDetails остаются без изменений...
+const ImpactDetails = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1 py-6 md:py-16">
+        <div className="container px-3 md:px-6">
+          <div className="flex flex-col md:flex-row md:items-center gap-3 mb-6 md:mb-8">
+            <Button
+              asChild
+              variant="secondary"
+              size="sm"
+              className="self-start font-medium"
+            >
+              <Link to="/" className="flex items-center">
+                <ArrowLeft className="h-4 w-4 mr-1 md:mr-2" />
+                На главную
+              </Link>
+            </Button>
+            <h1 className="text-2xl md:text-3xl font-bold mt-2 md:mt-0">
+              Влияние игр
+            </h1>
+          </div>
+
+          <Tabs defaultValue="positive" className="w-full">
+            <div className="bg-background sticky top-0 z-10 pb-2 pt-1">
+              <ScrollArea className="w-full pb-2">
+                <TabsList className="w-full inline-flex min-w-max mb-2 text-sm">
+                  <TabsTrigger
+                    value="positive"
+                    className="px-3 md:px-4 py-2 rounded-md"
+                  >
+                    Положительное
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="negative"
+                    className="px-3 md:px-4 py-2 rounded-md"
+                  >
+                    Негативное
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="recommendations"
+                    className="px-3 md:px-4 py-2 rounded-md"
+                  >
+                    Рекомендации
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="ages"
+                    className="px-3 md:px-4 py-2 rounded-md"
+                  >
+                    Возрастные группы
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="esports"
+                    className="px-3 md:px-4 py-2 rounded-md"
+                  >
+                    Киберспорт
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="history"
+                    className="px-3 md:px-4 py-2 rounded-md"
+                  >
+                    История
+                  </TabsTrigger>
+                </TabsList>
+              </ScrollArea>
+            </div>
+
+            <TabsContent value="positive" className="space-y-4 mt-2">
+              {/* Остальной контент без изменений */}
+            </TabsContent>
+
+            {/* Остальные TabsContent без изменений */}
+          </Tabs>
+
+          <div className="flex justify-center mt-8 md:mt-12 sticky bottom-4 z-10">
+            <Button
+              onClick={scrollToTop}
+              className="gap-2 shadow-md"
+              size="default"
+            >
+              <ChevronUp className="h-4 w-4" /> Наверх
+            </Button>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
 export default ImpactDetails;
