@@ -363,6 +363,82 @@ const ageGroupsData = [
   /* ... (не изменялось, оставлено без изменений) */
 ];
 
+// Компонент для возрастных групп
+const AgeGroupCard = ({ group }: { group: (typeof ageGroupsData)[0] }) => (
+  <Card className="mb-6">
+    <CardHeader className="p-4 md:p-6">
+      <div className="flex items-start gap-3 md:gap-4">
+        <div className="h-8 w-8 md:h-10 md:w-10 text-primary flex-shrink-0">
+          {group.icon}
+        </div>
+        <div>
+          <CardTitle className="text-base md:text-lg">{group.title}</CardTitle>
+          <CardDescription className="text-xs md:text-sm mt-1">
+            {group.description}
+          </CardDescription>
+        </div>
+      </div>
+    </CardHeader>
+    <CardContent className="px-4 pb-4 md:px-6 md:pb-6 text-xs md:text-sm">
+      <div className="space-y-4">
+        <div>
+          <h4 className="font-medium mb-2 text-sm md:text-base text-primary">
+            Положительное влияние:
+          </h4>
+          <ul className="list-disc pl-5 md:pl-6 space-y-2">
+            {group.benefits.map((benefit, idx) => (
+              <li key={idx}>{benefit}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-medium mb-2 text-sm md:text-base text-destructive">
+            Риски и проблемы:
+          </h4>
+          <ul className="list-disc pl-5 md:pl-6 space-y-2">
+            {group.risks.map((risk, idx) => (
+              <li key={idx}>{risk}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-medium mb-2 text-sm md:text-base">
+            Рекомендации:
+          </h4>
+          <ul className="list-disc pl-5 md:pl-6 space-y-2">
+            {group.recommendations.map((rec, idx) => (
+              <li key={idx}>{rec}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="pt-2">
+          <details className="text-xs md:text-sm">
+            <summary className="font-medium cursor-pointer text-sm md:text-base">
+              Исследования
+            </summary>
+            <div className="mt-2">
+              {group.studies.map((study, idx) => (
+                <StudyItem
+                  key={idx}
+                  author={study.author}
+                  year={study.year}
+                  title={study.title}
+                  journal={study.journal}
+                  volume={study.volume}
+                  pages={study.pages}
+                />
+              ))}
+            </div>
+          </details>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
+
 // Данные о профессиональном гейминге и киберспорте
 const professionalGamingData = {
   /* ... */
